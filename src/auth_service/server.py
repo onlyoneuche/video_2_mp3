@@ -32,7 +32,7 @@ def login():
     email = user_row[0]
     password = user_row[1]
 
-    if auth.username != email or auth.password != password:
+    if auth.username != email and auth.password != password:
         return "invalid credentials", 401
 
     # generate jwt token
