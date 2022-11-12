@@ -1,0 +1,21 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="98" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="adashi_admin.views.plan_views.AdminPlanViewSet.get_paginated_response" />
+          <option value="adashi_admin.views.plan_views.AdminPlanViewSet.get_serializer" />
+          <option value="adashi_admin.views.plan_views.AdminPlanViewSet.paginate_queryset" />
+          <option value="adashi_admin.views.plan_views.AdminPlanViewSet.request" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
