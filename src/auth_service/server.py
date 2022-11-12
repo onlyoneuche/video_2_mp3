@@ -38,6 +38,21 @@ def login():
     # generate jwt token
     return create_jwt(auth.username, os.environ.get('JWT_SECRET_KEY'), True)
 
+@server.route('/validate', methods=['POST'])
+def validate():
+    encoded_token = request.headers.get('Authorization')
+    if not encoded_token:
+        return "missing token", 401
+
+    token = encoded_token.split(' ')[1]
+
+    try:
+        decoded_token = jwt.decode(token, os.environ.get('JWT_SECRET_KEY'), algorithms=['HS256'])
+        return decoded_token, 200
+    except jwt.ExpiredSignatureError:
+        return "expired token", 401
+    except jwt.InvalidTokenError:
+        return "invalid token", 401
 
 def create_jwt(username, secret, is_admin):
     payload = {
@@ -49,3 +64,5 @@ def create_jwt(username, secret, is_admin):
     return jwt.encode(payload, secret, algorithm='HS256').decode("utf-8")
 
 
+if __name__ == '__main__':
+    server.run(host="0.0.0.0", port=5000, debug=True)
