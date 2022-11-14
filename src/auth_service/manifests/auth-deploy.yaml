@@ -19,12 +19,12 @@ spec:
         app: auth-service
     spec:
       containers:
-        name: auth-service
-        image: daleentontech/auth-service
-        ports:
-          - containerPort: 5000
-        envFrom:
-          - configMapRef:
-            name: auth-configmap
-          - secretRef:
-            name: auth-secret
+        - name: auth-service
+          image: daleentontech/auth-service
+          ports:
+            - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: auth-configmap
+            - secretRef:
+                name: auth-secret
